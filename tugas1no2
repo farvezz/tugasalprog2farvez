@@ -1,0 +1,34 @@
+package tugas1;
+import java.util.*;
+public class jumlahharidalamtahun {
+
+    public static void main(String[] args) {
+        // TODO code application logic here
+        Scanner in = new Scanner (System.in);
+        System.out.print("Masukkan Tahun Awal : ");
+        int tahun0 = in.nextInt();
+        System.out.print("Masukkan Tahun Awal : ");
+        int tahun1 = in.nextInt();
+        int totalhari = 0;
+        for (int i = tahun0; i <= tahun1; i++){
+            totalhari += jumlahharidalamtahun(i);
+        }
+        System.out.println("=============================");
+        System.out.println("Jumlah hari dari tahun "+tahun0+" ke tahun "+tahun1+" adalah "+totalhari+" hari");
+    }
+    
+    static int jumlahharidalamtahun(int tahun){
+        int hari = 0;
+        if (tahun % 100 == 0){
+            if (tahun % 400 == 0)
+                hari = 366;
+            else
+                hari = 365;
+        }
+        else if (tahun % 4 == 0)
+            hari = 366;
+        else
+            hari = 365;
+        return hari;
+    }
+}
