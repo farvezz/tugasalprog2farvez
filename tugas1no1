@@ -1,0 +1,64 @@
+package tugas1;
+import java.util.*;
+public class password {
+
+    public static void main(String[] args) {
+        Scanner in = new Scanner (System.in);
+        String pass;
+        Boolean syarat1, syarat2, syarat3;
+        System.out.print("Masukkan Password Baru : ");
+        pass = in.next();
+        
+        syarat1 = cek1(pass);
+        syarat2 = cek2(pass);
+        syarat3 = cek3(pass);
+        cekpass(syarat1, syarat2, syarat3);
+    }
+    
+    static Boolean cek1(String pass){
+        int x = pass.length();
+        if (x >= 8)
+            return true;
+        else
+            return false;
+    }
+    
+    static Boolean cek3(String pass){
+        int mindigit = 0;
+        for (int i = 0; i < pass.length(); i++){
+            Boolean z = Character.isDigit(pass.charAt(i));
+            if (z == true)
+                mindigit++;   
+        }
+        
+        if (mindigit >= 2)
+            return true;
+        else
+            return false;               
+    }
+    
+    static Boolean cek2(String pass){
+        int total, huruf = 0, digit = 0;
+        for(int i = 0; i < pass.length(); i++){
+            Boolean d = Character.isDigit(pass.charAt(i));
+            Boolean h = Character.isLetter(pass.charAt(i));
+            if (d == true)
+                digit++;
+            if (h == true)
+                huruf++;
+        }
+        total = digit+huruf;
+        
+        if (total == pass.length())
+            return true;
+        else
+            return false;
+    }
+    
+    static void cekpass(Boolean x, Boolean y, Boolean z){
+        if ((x && y && z) == true)
+            System.out.println("Kata Sandi Valid");
+        else
+            System.out.println("Kata Sandi Tidak Valid");
+    }
+}
