@@ -7,7 +7,7 @@ public class jumlahharidalamtahun {
         Scanner in = new Scanner (System.in);
         System.out.print("Masukkan Tahun Awal : ");
         int tahun0 = in.nextInt();
-        System.out.print("Masukkan Tahun Awal : ");
+        System.out.print("Masukkan Tahun Akhir : ");
         int tahun1 = in.nextInt();
         int totalhari = 0;
         for (int i = tahun0; i <= tahun1; i++){
